@@ -9,6 +9,9 @@ public class User {
 		return id;
 	}
 
+	public void setId(String id)
+	{
+	}
 
 	public String getUsername()
 	{

@@ -12,6 +12,12 @@ public class UsetTest {
 		user = new User();
 	}
 	
+	@Test
+	public void userIdTest(){
+		value = "111";
+		user.setId(value);
+		assertEquals(user.getId(), value);
+	}
 	
 	@Test
 	public void userNameTest(){

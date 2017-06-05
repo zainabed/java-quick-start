@@ -25,14 +25,16 @@ pipeline {
 			steps {
 				sh 'mvn clean install'
 			}
+			
+			post {
+				success {
+					archiveArtifacts artifacts: 'target/*.jar',  fingerprint: true
+				}
+			}
 		}
 	}
 	
-	post {
-		success {
-			archiveArtifacts artifacts: 'target/*.jar',  fingerprint: true
-		}
-	}
+	
 	
 	
 }

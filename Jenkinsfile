@@ -20,7 +20,7 @@ pipeline {
 		   	}
 			
 			steps {
-				sh 'mvn clean verify'
+				sh 'mvn clean verify -Dmaven.test.skip=true'
 			}
 		}
 		
@@ -29,12 +29,16 @@ pipeline {
 				branch 'develop'
 			}
 			steps {
-				sh 'mvn clean install'
+				sh 'mvn clean install -Dmaven.test.skip=true -Dmaven.verify.skip=true'
 			}
 			
 			post {
 				success {
 					archiveArtifacts artifacts: 'target/*.jar',  fingerprint: true
+				}
+				
+				failure {
+				  sh 'git tag -a "unstable" -m "failed build" ' 
 				}
 			}
 		}

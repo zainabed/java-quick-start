@@ -3,7 +3,7 @@ pipeline {
 	
 	options {
 		buildDiscarder (
-			logRotator (numToKeepStr: 2)
+			logRotator (numToKeepStr: '2')
 		) 
 	}
 	

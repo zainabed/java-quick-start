@@ -40,15 +40,16 @@ pipeline {
 			}
 		}
 		
-		post {
+	}
+	
+	post {
 			
-			failure {
-			  sh 'git tag -a "unstable" -m "failed build" ' 
-			}
-			
-			success {
-				sh 'git tag -a "stable" -m "stable build"'
-			}
+		failure {
+		  sh 'git tag -a "unstable" -m "failed build" ' 
+		}
+		
+		success {
+			sh 'git tag -a "stable" -m "stable build"'
 		}
 	}
 	

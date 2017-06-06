@@ -45,12 +45,12 @@ pipeline {
 	post {
 			
 		failure {
-		  sh 'git tag -a "unstable.$BUILD_ID" -m "failed build" ' 
+		  sh 'git tag -a "unstable.$BRANCH_NAME.$BUILD_ID" -m "failed build" ' 
 		  sh 'git push origin --tags'
 		}
 		
 		success {
-			sh 'git tag -a "stable.$BUILD_ID" -m "stable build"'
+			sh 'git tag -a "stable.$BRANCH_NAME.$BUILD_ID" -m "stable build"'
 			sh 'git push origin --tags'
 		}
 	}

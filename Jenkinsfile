@@ -37,14 +37,19 @@ pipeline {
 					archiveArtifacts artifacts: 'target/*.jar',  fingerprint: true
 				}
 				
-				failure {
-				  sh 'git tag -a "unstable" -m "failed build" ' 
-				}
+			}
+		}
+		
+		post {
+			
+			failure {
+			  sh 'git tag -a "unstable" -m "failed build" ' 
+			}
+			
+			success {
+				sh 'git tag -a "stable" -m "stable build"'
 			}
 		}
 	}
-	
-	
-	
 	
 }

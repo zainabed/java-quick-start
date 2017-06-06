@@ -46,10 +46,12 @@ pipeline {
 			
 		failure {
 		  sh 'git tag -a "unstable" -m "failed build" ' 
+		  sh 'git push origin --tags'
 		}
 		
 		success {
 			sh 'git tag -a "stable" -m "stable build"'
+			sh 'git pusho origin --tags'
 		}
 	}
 	

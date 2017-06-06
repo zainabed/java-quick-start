@@ -51,7 +51,7 @@ pipeline {
 		
 		success {
 			sh 'git tag -a "stable.$BUILD_ID" -m "stable build"'
-			sh 'git pusho origin --tags'
+			sh 'git push origin --tags'
 		}
 	}
 	

@@ -15,7 +15,7 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>org.mockito</groupId> 
+    	<groupId>org.mockito</groupId>
     	<artifactId>mockito-all</artifactId>
     	<version>1.9.5</version>
     </dependency>
@@ -43,4 +43,20 @@
       </plugin>
     </plugins>
   </build>
+  <reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

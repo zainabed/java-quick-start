@@ -60,4 +60,16 @@ pipeline {
 		}
 	}*/
 
+	post {
+	  failure {
+		  echo "Updating Github commit with fail status"
+			updateGitlabCommitStatus( name: 'jenkins-build', state: 'failed' )
+		}
+
+		success {
+			echo "Updating Github commit with success status"
+			updateGitlabCommitStatus( name: 'jenkins-build', state: 'success' )
+		}
+	}
+
 }

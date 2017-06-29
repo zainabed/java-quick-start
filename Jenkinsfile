@@ -17,6 +17,12 @@ pipeline {
 			steps {
 			  sh 'mvn clean test'
 			}
+
+			post {
+				success {
+					step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: '**/target/site/cobertura/coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+				}
+			}
 		}
 
 		stage ('Integration') {
@@ -41,8 +47,7 @@ pipeline {
 				success {
 					archiveArtifacts artifacts: 'target/*.jar',  fingerprint: true
 				}
-
-			}
+    	}
 		}
 
 	}

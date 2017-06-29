@@ -47,7 +47,7 @@ pipeline {
 
 	}
 
-	post {
+	/*post {
 
 		failure {
 		  sh 'git tag -a "unstable.$BRANCH_NAME.$BUILD_ID" -m "failed build" '
@@ -58,6 +58,6 @@ pipeline {
 			sh 'git tag -a "stable.$BRANCH_NAME.$BUILD_ID" -m "stable build"'
 			sh 'git push origin --tags'
 		}
-	}
+	}*/
 
 }

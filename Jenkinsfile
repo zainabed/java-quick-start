@@ -1,6 +1,10 @@
 pipeline {
 	agent any
 
+	tools {
+		maven 'Maven 3.2.1'
+	}
+
 	options {
 		buildDiscarder (
 			logRotator (numToKeepStr: '2')
